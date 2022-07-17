@@ -1,11 +1,10 @@
 const mongoose = require('mongoose');
+const { ObjectID } = mongoose.Schema;
 
 const chwteamSchema = new mongoose.Schema({
     chw_id: {
-        type: String
-    },
-    chw: {
-        type: String
+        type: ObjectID,
+        ref: "changwat"
     },
     name: {
         type: String
@@ -14,10 +13,8 @@ const chwteamSchema = new mongoose.Schema({
         type: String
     },
     office_id:{
-        type: String
-    },
-    office:{
-        type: String
+        type: ObjectID,
+        ref: "healthoffices"
     },
     role:{
         type: String
@@ -31,6 +28,6 @@ const chwteamSchema = new mongoose.Schema({
     remark: {
         type: String
     }
-});
+}, { timestamps: true });
 
 module.exports = Chwteam = mongoose.model('chw_teams', chwteamSchema);

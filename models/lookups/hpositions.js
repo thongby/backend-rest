@@ -7,6 +7,6 @@ const hpositionSchema = new mongoose.Schema({
     hposition:{
         type: String
     }
-});
+},{ timestamps: true });
 
 module.exports = Hposition = mongoose.model('hpositions', hpositionSchema);

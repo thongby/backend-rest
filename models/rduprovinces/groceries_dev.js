@@ -27,6 +27,9 @@ const groceriesdevSchema = new mongoose.Schema({
     },
     byear: {
         type: String
+    },
+    remark: {
+        type: String
     }
 }, { timestamps: true });
 

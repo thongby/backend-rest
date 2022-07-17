@@ -1,8 +1,10 @@
 const mongoose = require('mongoose');
+const { ObjectId } = mongoose.Schema;
 
 const chwrduplanSchema = new mongoose.Schema({
     chw_id:{
-        type: String
+        type: ObjectId,
+        ref: "changwats"
     },
     chw_name:{
         type: String
@@ -13,6 +15,6 @@ const chwrduplanSchema = new mongoose.Schema({
     fileattach: {
         type: String
     }
-});
+}, { timestamps: true });
 
 module.exports = Chwrduplan = mongoose.model('chwrduplans', chwrduplanSchema);

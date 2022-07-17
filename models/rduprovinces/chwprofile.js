@@ -1,14 +1,13 @@
 const mongoose = require('mongoose');
+const { ObjectID } = mongoose.Schema;
 
 const chwprofileSchema = new mongoose.Schema({
     region: {
         type: String
     },
     chw_id:{
-        type: String
-    },
-    chw_name:{
-        type: String
+        type: ObjectId,
+        ref: "changwats"
     },
     lat: {
         type: String

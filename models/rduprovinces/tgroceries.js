@@ -1,26 +1,18 @@
 const mongoose = require('mongoose');
+const { ObjectId } = mongoose.Schema;
 
 const tgroceriesSchema = new mongoose.Schema({
     chw_id:{
-        type: String
-    },
-    chw_name:{
-        type: String
+        type: ObjectId,
+        ref: "changwats"
     },
     amp_id:{
-        type: String
-    },
-    amp_name:{
-        type: String
+        type: ObjectId,
+        ref: "amphoes"
     },
     tam_id:{
-        type: String
-    },
-    tam_name:{
-        type: String
-    },
-    shopid: {
-        type: String
+        type: ObjectId,
+        ref: "tambons"
     },
     shop_name:{
         type: String
@@ -41,6 +33,9 @@ const tgroceriesSchema = new mongoose.Schema({
         type: Date
     },
     byearlasteval: {
+        type: String
+    },
+    remark: {
         type: String
     }
 }, { timestamps: true });

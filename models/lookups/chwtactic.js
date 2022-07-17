@@ -10,6 +10,6 @@ const chwtacticSchema = new mongoose.Schema({
     shorttactic: {
         type: String
     }
-});
+}, { timestamps: true });
 
 module.exports = Chwtactic = mongoose.model('chwtactics', chwtacticSchema);

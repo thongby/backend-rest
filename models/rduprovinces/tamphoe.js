@@ -16,6 +16,6 @@ const tamphoeSchema = new mongoose.Schema({
     year: {
         type: String
     }
-});
+},{ timestamps: true });
 
 module.exports = Targetamphoe = mongoose.model('tamphoes', tamphoeSchema);
