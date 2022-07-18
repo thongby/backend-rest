@@ -25,21 +25,6 @@ const {
   editChwprofile,
 } = require("../controllers/rduprovince");
 
-//@endpoint     localhost:4000/api/changwat
-//@method       GET
-//@access       Public
-router.get("/changwat", listChangwat);
-
-//@endpoint     localhost:4000/api/amphoe
-//@method       GET
-//@access       Public
-router.get("/amphoe", listAmphoe);
-
-//@endpoint     localhost:4000/api/tambon
-//@method       GET
-//@access       Public
-router.get("/tambon", listTambon);
-
 //@endpoint     localhost:4000/api/tamphoe
 //@method       GET
 //@access       Public

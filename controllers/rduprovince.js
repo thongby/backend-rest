@@ -1,49 +1,8 @@
-const Changwat = require('../models/locations/changwat');
-const Amphoe = require('../models/locations/amphoe');
-const Tambon = require('../models/locations/tambon');
 const Targetamphoe = require('../models/rduprovinces/tamphoe');
 const Chwteam = require('../models/rduprovinces/chw_team');
 const Ampteam = require('../models/rduprovinces/amp_team');
 const Tgroceries = require('../models/rduprovinces/tgroceries');
 const Chwprofile = require('../models/rduprovinces/chwprofile')
-
-// Location data ------------------------------------
-// List all changwat data
-exports.listChangwat = async (req, res) => {
-    try {
-        const dataChangwat = await Changwat.find({})
-        res.send(dataChangwat)
-        //res.send('OK')
-    } catch (error) {
-        console.log(error)
-        res.status(400).send('Server Error!!!')
-    }
-}
-
-// List all amphoe data
-exports.listAmphoe = async (req, res) => {
-    try {
-        const dataAmphoe = await Amphoe.find({})
-        res.send(dataAmphoe)
-        //res.send('OK')
-    } catch (error) {
-        console.log(error)
-        res.status(400).send('Server Error!!!')
-    }
-}
-
-// List all tambon data
-exports.listTambon = async (req, res) => {
-    try {
-        const dataTambon = await Tambon.find({})
-        res.send(dataTambon)
-        //res.send('OK')
-    } catch (error) {
-        console.log(error)
-        res.status(400).send('Server Error!!!')
-    }
-}
-//-----------------------------------------------
 
 // RDU changwat data 
 // Changwat profile data (UD)

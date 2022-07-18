@@ -8,26 +8,25 @@ exports.auth = (req, res, next) => {
     if (!token) {
       return res.status(401).send("no token , authorization denied");
     }
-    const decoded = jwt.verify(token, "jwtSecret");
+    const decoded = jwt.verify(token, "rducountry");
 
     console.log("middleware", decoded);
-    req.user  = decoded.user
-    next()
-
+    req.user = decoded.user;
+    next();
   } catch (err) {
     console.log(err);
     res.status(401).send("Token Invavid!!");
   }
 };
 
-exports.adminCheck = async(req, res, next) => {
+exports.adminCheck = async (req, res, next) => {
   try {
-    const { username } = req.user
-    const adminUser = await User.findOne({ username }).exec()
-    if(adminUser.role !== 'admin'){
-      res.status(403).send(err,'Admin Access denied')
-    } else{
-      next()
+    const { username } = req.user;
+    const adminUser = await User.findOne({ username }).exec();
+    if (adminUser.role !== "admin") {
+      res.status(403).send(err, "Admin Access denied");
+    } else {
+      next();
     }
   } catch (err) {
     console.log(err);
