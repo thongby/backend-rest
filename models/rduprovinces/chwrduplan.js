@@ -13,7 +13,7 @@ const chwrduplanSchema = new mongoose.Schema({
         type: String
     },
     fileattach: {
-        type: String
+        type: Array
     }
 }, { timestamps: true });
 

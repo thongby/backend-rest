@@ -4,7 +4,7 @@ const {ObjectId} = mongoose.Schema;
 const ampteamSchema = new mongoose.Schema({
     chw_id: {
         type: ObjectId,
-        ref: "changwat"
+        ref: "changwats"
     },
     amp_id: {
         type: ObjectId,
