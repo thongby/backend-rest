@@ -1,7 +1,7 @@
 const Ampteam = require("../models/rduprovinces/amp_team");
 
 // RDU amphoe team (CRUD)
-exports.createAmpteam = async (req, res) => {
+exports.create = async (req, res) => {
   try {
     console.log(req.body);
     // const { name } = req.body;
@@ -13,7 +13,7 @@ exports.createAmpteam = async (req, res) => {
   }
 };
 
-exports.listAmpteam = async (req, res) => {
+exports.list = async (req, res) => {
   try {
     const count = parseInt(req.params.count);
 
@@ -33,7 +33,7 @@ exports.listAmpteam = async (req, res) => {
   }
 };
 
-exports.readAmpteam = async (req, res) => {
+exports.read = async (req, res) => {
   try {
     //code
     const ampteam = await Ampteam.findOne({ _id: req.params.id })
@@ -50,7 +50,7 @@ exports.readAmpteam = async (req, res) => {
   }
 };
 
-exports.editAmpteam = async (req, res) => {
+exports.update = async (req, res) => {
   try {
     const ampteam = await Ampteam.findOneAndUpdate(
       { _id: req.params.id },
@@ -64,7 +64,7 @@ exports.editAmpteam = async (req, res) => {
   }
 };
 
-exports.removeAmpteam = async (req, res) => {
+exports.remove = async (req, res) => {
   try {
     const deleted = await Ampteam.findOneAndRemove({
       _id: req.params.id,

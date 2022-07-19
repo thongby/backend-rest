@@ -52,7 +52,7 @@ exports.read = async (req, res) => {
   }
 };
 
-exports.edit = async (req, res) => {
+exports.update = async (req, res) => {
   try {
     const hoffice = await Hoffice.findOneAndUpdate(
       { _id: req.params.id },

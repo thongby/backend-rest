@@ -1,7 +1,7 @@
 const Targetamphoe = require("../models/rduprovinces/tamphoe");
 
 // Target amphoe data (CRUD)
-exports.createTargetamphoe = async (req, res) => {
+exports.create = async (req, res) => {
   try {
     console.log(req.body);
     // const { name } = req.body;
@@ -9,11 +9,11 @@ exports.createTargetamphoe = async (req, res) => {
     res.send(tamphoe);
   } catch (error) {
     console.log(error);
-    res.status(500).send("Create Error!!");
+    res.status(500).send("Server Error!!");
   }
 };
 
-exports.listTargetamphoe = async (req, res) => {
+exports.list = async (req, res) => {
   try {
     const count = parseInt(req.params.count);
 
@@ -29,7 +29,7 @@ exports.listTargetamphoe = async (req, res) => {
   }
 };
 
-exports.readTargetamphoe = async (req, res) => {
+exports.read = async (req, res) => {
   try {
     //code
     const tamphoe = await Targetamphoe.findOne({ _id: req.params.id })
@@ -38,11 +38,11 @@ exports.readTargetamphoe = async (req, res) => {
     res.send(tamphoe);
   } catch (error) {
     console.log(error);
-    res.status(500).send("Read Error!!");
+    res.status(500).send("Server Error!!");
   }
 };
 
-exports.editTargetamphoe = async (req, res) => {
+exports.update = async (req, res) => {
   try {
     const tamphoe = await Targetamphoe.findOneAndUpdate(
       { _id: req.params.id },
@@ -52,19 +52,19 @@ exports.editTargetamphoe = async (req, res) => {
     res.send(tamphoe);
   } catch (error) {
     console.log(error);
-    res.status(500).send("Update Error!!!");
+    res.status(500).send("Server Error!!!");
   }
 };
 
-exports.removeTargetamphoe = async (req, res) => {
+exports.remove = async (req, res) => {
   try {
-    const deleted = await Ampteam.findOneAndRemove({
+    const deleted = await Targetamphoe.findOneAndRemove({
       _id: req.params.id,
     }).exec();
 
     res.send(deleted);
   } catch (error) {
     console.log(error);
-    res.status(500).send("Remove Error!!!");
+    res.status(500).send("Server Error!!!");
   }
 };

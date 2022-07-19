@@ -2,7 +2,7 @@ const Chwprofile = require("../models/rduprovinces/chwprofile");
 
 // RDU changwat data
 // Changwat profile data (RU)
-exports.createChwprofile = async (req, res) => {
+exports.create = async (req, res) => {
   try {
     console.log(req.body);
     // const { name } = req.body;
@@ -13,7 +13,7 @@ exports.createChwprofile = async (req, res) => {
   }
 };
 
-exports.listChwprofile = async (req, res) => {
+exports.list = async (req, res) => {
   try {
     const count = parseInt(req.params.count);
 
@@ -29,43 +29,42 @@ exports.listChwprofile = async (req, res) => {
   }
 };
 
-exports.readChwprofile = async (req, res) => {
-    try {
-      //code
-      const chwprofile = await Chwprofile.findOne({ _id: req.params.id })
-        .populate("changwats")
-        .exec();
-      res.send(chwprofile);
-    } catch (error) {
-      //err
-      res.status(500).send("Read Error!!");
-    }
-  };
-  
-
-exports.editChwprofile = async (req, res) => {
+exports.read = async (req, res) => {
   try {
     //code
-    const chwprofile = await Chwprofile.findOneAndUpdate(
-        { _id: req.params.id },
-        req.body,
-        { new: true }
-      ).exec();
-      res.send(chwprofile);
+    const chwprofile = await Chwprofile.findOne({ _id: req.params.id })
+      .populate("changwats")
+      .exec();
+    res.send(chwprofile);
   } catch (error) {
-    console.log(error);
-    res.status(500).send("Update Error!!!");
+    //err
+    res.status(500).send("Server Error!!");
   }
 };
 
-exports.removeChwprofile = async (req, res) => {
-    try {
-      const deleted = await Chwprofile.findOneAndRemove({
-        _id: req.params.id,
-      }).exec();
-  
-      res.send(deleted);
-    } catch (error) {
-      res.status(500).send("Remove Error!!");
-    }
-  };
+exports.update = async (req, res) => {
+  try {
+    //code
+    const chwprofile = await Chwprofile.findOneAndUpdate(
+      { _id: req.params.id },
+      req.body,
+      { new: true }
+    ).exec();
+    res.send(chwprofile);
+  } catch (error) {
+    console.log(error);
+    res.status(500).send("Server Error!!!");
+  }
+};
+
+exports.remove = async (req, res) => {
+  try {
+    const deleted = await Chwprofile.findOneAndRemove({
+      _id: req.params.id,
+    }).exec();
+
+    res.send(deleted);
+  } catch (error) {
+    res.status(500).send("Server Error!!");
+  }
+};

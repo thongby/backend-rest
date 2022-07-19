@@ -2,30 +2,21 @@ const express = require("express");
 const router = express.Router();
 
 const {
-    listAmpteam,
-    addAmpteam,
-    editAmpteam,
-    deleteAmpteam
+    list,
+    create,
+    read,
+    update,
+    remove
   } = require("../controllers/amp_team");
 
-//@endpoint     localhost:4000/api/ampteam
-//@method       GET
-//@access       Public
-router.get("/ampteam", listAmpteam);
+// middleware
+const { auth, adminCheck } = require("../middleware/auth");
 
-//@endpoint     localhost:4000/api/ampteam
-//@method       POST
-//@access       Public
-router.get("/ampteam", addAmpteam);
-
-//@endpoint     localhost:4000/api/ampteam
-//@method       PUT
-//@access       Public
-router.get("/ampteam", editAmpteam);
-
-//@endpoint     localhost:4000/api/ampteam
-//@method       DELETE
-//@access       Public
-router.get("/ampteam", deleteAmpteam);
+//@Endpoint     http://localhost:4000/api/amp_team
+router.get("/amp_team", list);
+router.post("/amp_team", auth, adminCheck, create);
+router.get("/amp_team/:id", auth, adminCheck, read);
+router.put("/amp_team/:id", auth, adminCheck, update);
+router.delete("/amp_team/:id", auth, adminCheck, remove);
 
 module.exports = router;

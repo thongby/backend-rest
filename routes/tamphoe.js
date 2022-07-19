@@ -1,31 +1,23 @@
 const express = require("express");
 const router = express.Router();
 
+// controllers
 const {
-  listTamphoe,
-  addTamphoe,
-  editTamphoe,
-  deleteTamphoe,
+  list,
+  create,
+  read,
+  update,
+  remove,
 } = require("../controllers/tamphoe");
 
-//@endpoint     localhost:4000/api/tamphoe
-//@method       GET
-//@access       Public
-router.get("/tamphoe", listTamphoe);
+// middleware
+const { auth, adminCheck } = require("../middleware/auth");
 
-//@endpoint     localhost:4000/api/tamphoe
-//@method       POST
-//@access       Public
-router.get("/tamphoe", addTamphoe);
-
-//@endpoint     localhost:4000/api/tamphoe
-//@method       PUT
-//@access       Public
-router.get("/tamphoe", editTamphoe);
-
-//@endpoint     localhost:4000/api/tamphoe
-//@method       DELETE
-//@access       Public
-router.get("/tamphoe", deleteTamphoe);
+//@Endpoint     http://localhost:4000/api/tamphoe
+router.get("/tamphoe", list);
+router.post("/tamphoe", auth, adminCheck, create);
+router.get("/tamphoe/:id", auth, adminCheck, read);
+router.put("/tamphoe/:id", auth, adminCheck, update);
+router.delete("/tamphoe/:id", auth, adminCheck, remove);
 
 module.exports = router;

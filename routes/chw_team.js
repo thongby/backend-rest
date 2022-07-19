@@ -2,30 +2,21 @@ const express = require("express");
 const router = express.Router();
 
 const {
-    listChwteam,
-    editChwteam,
-    addChwteam,
-    deleteChwteam
+    list,
+    create,
+    read,
+    update,
+    remove
   } = require("../controllers/chw_team");
 
-//@endpoint     localhost:4000/api/chwteam
-//@method       GET
-//@access       Public
-router.get("/chwteam", listChwteam);
+// middleware
+const { auth, adminCheck } = require("../middleware/auth");
 
-//@endpoint     localhost:4000/api/chwteam
-//@method       POST
-//@access       Public
-router.post("/chwteam", addChwteam);
-
-//@endpoint     localhost:4000/api/chwteam
-//@method       PUT
-//@access       Public
-router.get("/chwteam", editChwteam);
-
-//@endpoint     localhost:4000/api/chwteam
-//@method       DELETE
-//@access       Public
-router.get("/chwteam", deleteChwteam);
+//@Endpoint     http://localhost:4000/api/chw_team
+router.get("/chw_team", list);
+router.post("/chw_team", auth, adminCheck, create);
+router.get("/chw_team/:id", auth, adminCheck, read);
+router.put("/chw_team/:id", auth, adminCheck, update);
+router.delete("/chw_team/:id", auth, adminCheck, remove);
 
 module.exports = router;
