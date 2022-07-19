@@ -6,10 +6,10 @@ exports.createChwprofile = async (req, res) => {
   try {
     console.log(req.body);
     // const { name } = req.body;
-    const product = await new Chwprofile(req.body).save();
-    res.send(Chwprofile);
+    const chwprofile = await new Chwprofile(req.body).save();
+    res.send(chwprofile);
   } catch (error) {
-    res.status(500).send("Create Error!!");
+    res.status(500).send("Server Error!!");
   }
 };
 
