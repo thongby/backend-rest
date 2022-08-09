@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
-const { ObjectID } = mongoose.Schema;
+const { ObjectId } = mongoose.Schema;
 
 const chwteamSchema = new mongoose.Schema({
     chw_id: {
-        type: ObjectID,
+        type: ObjectId,
         ref: "changwat"
     },
     name: {
@@ -13,7 +13,7 @@ const chwteamSchema = new mongoose.Schema({
         type: String
     },
     office_id:{
-        type: ObjectID,
+        type: ObjectId,
         ref: "healthoffices"
     },
     role:{

@@ -4,7 +4,7 @@ const { ObjectId } = mongoose.Schema;
 const tamphoeSchema = new mongoose.Schema(
   {
     chw_id: {
-      type: ObjectID,
+      type: ObjectId,
       ref: "changwats",
     },
     amphoe_id: {

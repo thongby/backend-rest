@@ -17,7 +17,7 @@ const { auth, adminCheck } = require("../middleware/auth");
 router.get("/chwrduplan", list);
 router.post("/chwrduplan", auth, adminCheck, create);
 router.get("/chwrduplan/:id", auth, adminCheck, read);
-router.put("/chwrduplan/:id", auth, adminCheck, update);
-router.delete("/chwrduplan/:id", auth, adminCheck, remove);
+//router.put("/chwrduplan/:id", auth, adminCheck, update);
+//router.delete("/chwrduplan/:id", auth, adminCheck, remove);
 
 module.exports = router;

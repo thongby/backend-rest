@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const { ObjectID } = mongoose.Schema;
+const { ObjectId } = mongoose.Schema;
 
 const chwprofileSchema = new mongoose.Schema({
     region: {
